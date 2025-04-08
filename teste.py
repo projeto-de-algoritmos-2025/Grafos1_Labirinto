@@ -5,7 +5,7 @@ from collections import deque
 
 # Tamanho do labirinto (deve ser ímpar para funcionar bem com a geração)
 ALTURA = 21
-LARGURA = 21
+LARGURA = 33
 CELULA = 25
 
 # Cores
