@@ -28,7 +28,7 @@ class LabirintoApp:
         self.labirinto[self.inicio[0]][self.inicio[1]] = 'S'
         self.labirinto[self.fim[0]][self.fim[1]] = 'E'
         self.desenhar_labirinto()
-        self.root.after(500, self.bfs_animado)  # inicia animação após 0.5s
+        self.root.after(500, self.bfs_animado)
 
     def gerar_labirinto(self):
         def dfs(y, x):
@@ -68,32 +68,33 @@ class LabirintoApp:
         self.root.update()
 
     def bfs_animado(self):
+        #Inicio do BFS
         fila = deque()
-        fila.append((self.inicio, [self.inicio]))
+        fila.append((self.inicio, [self.inicio])) #Enqueue(S,S)
         visitados = set()
         direcoes = [(-1, 0), (1, 0), (0, -1), (0, 1)]
 
         while fila:
-            (y, x), caminho = fila.popleft()
+            (y, x), caminho = fila.popleft() # u <- Dequeue(S)
+
+            if (y, x) in visitados:
+                continue
+
+            visitados.add((y, x)) # Mark vertex as visited
+            self.desenhar_labirinto(visitados=visitados)
+            time.sleep(0.01)  
 
             if (y, x) == self.fim:
                 self.desenhar_labirinto(caminho=caminho)
                 return
 
-            visitados.add((y, x))
-            self.desenhar_labirinto(visitados=visitados)
-
-            time.sleep(0.01)  # controle da velocidade da animação
-
-            for dy, dx in direcoes:
+            for dy, dx in direcoes: # For each v in Adj[u]
                 ny, nx = y + dy, x + dx
                 if 0 <= ny < ALTURA and 0 <= nx < LARGURA:
                     if self.labirinto[ny][nx] in (' ', 'E') and (ny, nx) not in visitados:
-                        fila.append(((ny, nx), caminho + [(ny, nx)]))
-                        visitados.add((ny, nx))
+                        fila.append(((ny, nx), caminho + [(ny, nx)])) # Enqueue(S,v)
 
 
-# Rodar aplicação
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("Labirinto com Geração Aleatória + Animação BFS")
