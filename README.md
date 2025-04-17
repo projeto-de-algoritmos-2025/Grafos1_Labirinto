@@ -15,16 +15,16 @@ Este projeto tem como objetivo demonstrar o funcionamento do algoritmo de Busca 
 
 ## Screenshots
 
-![Primeira imagem do grafo percorrendo o caminho](image.png)
-*Figura 1: Primeira imagem do grafo percorrendo o caminho*
+![Primeira imagem do grafo percorrendo o caminho](image.png)<br>
+*Figura 1: Primeira imagem do grafo percorrendo o caminho*<br>
 
 
-![Primeira ramificação do grafo realizando a busca em largura](image-1.png)
-*Figura 2: Primeira ramificação do grafo realizando a busca em largura*
+![Primeira ramificação do grafo realizando a busca em largura](image-1.png)<br>
+*Figura 2: Primeira ramificação do grafo realizando a busca em largura*<br>
 
-Menor caminho encontrado
-![Menor caminho encontrado](image-2.png)
-*Figura 3: Menor caminho encontrado*
+
+![Menor caminho encontrado](image-2.png)<br>
+*Figura 3: Menor caminho encontrado*<br>
 
 ## Instalação 
 **Linguagem**: Python<br>
